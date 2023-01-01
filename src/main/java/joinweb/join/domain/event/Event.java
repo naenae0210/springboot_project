@@ -1,6 +1,7 @@
 package joinweb.join.domain.event;
 
 import joinweb.join.domain.Category;
+import joinweb.join.exception.NoMoreBookingAllowedException;
 import lombok.Getter;
 import lombok.Setter;
 import org.apache.tomcat.jni.Address;
@@ -29,5 +30,17 @@ public class Event {
     @ManyToMany(mappedBy="events")
     private List<Category> categories = new ArrayList<Category>();
 
+
+    public void addPeopleNumber(int number) {
+        this.peopleNumber += number;
+    }
+
+    public void removePeopleNumber(int number) {
+        int restPeople = this.peopleNumber - number;
+        if (restPeople < 0) {
+            throw new NoMoreBookingAllowedException("fulled");
+        }
+        this.peopleNumber = restPeople;
+    }
 
 }
