@@ -2,9 +2,12 @@ package joinweb.join.repository;
 
 import joinweb.join.domain.event.Event;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import java.util.List;
 
 @Repository
@@ -14,6 +17,7 @@ public class EventRepository {
     private final EntityManager em;
 
     public void save(Event event) {
+
         if (event.getId() == null) {
             em.persist(event);
         } else {

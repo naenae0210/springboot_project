@@ -11,5 +11,6 @@ import javax.persistence.Entity;
 @Getter
 @Setter
 public class Hobby extends Event {
+
 }
 

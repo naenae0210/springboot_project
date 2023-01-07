@@ -20,7 +20,7 @@ public class BookingService {
 
     private final MemberRepository memberRepository;
     private final BookingRepository bookingRepository;
-    private EventRepository eventRepository;
+    private final EventRepository eventRepository;
 
     @Transactional
     public Long booking(Long memberId, Long eventId, int count) {
