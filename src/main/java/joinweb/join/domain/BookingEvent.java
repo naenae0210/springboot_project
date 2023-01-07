@@ -1,18 +1,20 @@
 package joinweb.join.domain;
 
 import joinweb.join.domain.event.Event;
+import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "booking_item")
 @Getter @Setter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class BookingEvent {
 
     @Id @GeneratedValue
-    @Column(name = "order_item_id")
+    @Column(name = "booking_event_id")
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -24,4 +26,17 @@ public class BookingEvent {
     private Booking booking; // 주문
 
     private int count; // 예약 인원
+
+    public static BookingEvent createBookingEvent(Event event, int count) {
+        BookingEvent bookingEvent = new BookingEvent();
+        bookingEvent.setEvent(event);
+        bookingEvent.setCount(count);
+
+        event.removePeopleNumber(count);
+        return bookingEvent;
+    }
+
+    public void cancel() {
+        getEvent().addPeopleNumber(count);
+    }
 }
