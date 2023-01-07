@@ -5,6 +5,7 @@ import joinweb.join.domain.BookingEvent;
 import joinweb.join.domain.Member;
 import joinweb.join.domain.event.Event;
 import joinweb.join.repository.BookingRepository;
+import joinweb.join.repository.BookingSearch;
 import joinweb.join.repository.EventRepository;
 import joinweb.join.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
@@ -44,10 +45,10 @@ public class BookingService {
         booking.cancel();
     }
 
-    /*
+
     public List<Booking> findBookings(BookingSearch bookingSearch) {
-        return bookingRepository.findAll(bookingSerach);
+        return bookingRepository.findAll(bookingSearch);
     }
-*/
+
 }
 
