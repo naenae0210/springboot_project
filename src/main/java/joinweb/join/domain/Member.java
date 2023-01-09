@@ -17,6 +17,10 @@ public class Member {
     private Long id;
 
     private String name;
+    private String birth;
+    private String loginId;
+    private String password;
+
 
     @OneToMany(mappedBy = "member")
     private List<Booking> booking = new ArrayList<>();

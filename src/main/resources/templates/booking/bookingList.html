@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header"/>
+<body>
+<div class="container">
+    <div th:replace="fragments/bodyHeader :: bodyHeader"/>
+    <div>
+        <div>
+            <form th:object="${bookingSearch}" class="form-inline">
+                <div class="form-group mb-2">
+                    <input type="text" th:field="*{memberName}" class="form-control" placeholder="회원명"/>
+                </div>
+                <div class="form-group mx-sm-1 mb-2">
+                    <select th:field="*{bookingStatus}" class="form-control">
+                        <option value="">예약상태</option>
+                        <option th:each="status : ${T(joinweb.join.domain.BookingStatus).values()}"
+                                th:value="${status}"
+                                th:text="${status}">option
+                        </option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary mb-2">검색</button>
+            </form>
+        </div>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>회원명</th>
+                <th>예약 이벤트 정보</th>
+                <th>상태</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="event : ${bookings}">
+                <td th:text="${event.id}"></td>
+                <td th:text="${event.member.name}"></td>
+                <td th:text="${event.bookingEvents[0].event.name}"></td>
+                <td th:text="${event.status}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div th:replace="fragments/footer :: footer"/>
+</div> <!-- /container -->
+</body>
+<script>
+    function cancel(id) {
+        var form = document.createElement("form");
+        form.setAttribute("method", "post");
+        form.setAttribute("action", "/bookings/" + id + "/cancel");
+        document.body.appendChild(form);
+        form.submit();
+    }
+</script>
+</html>

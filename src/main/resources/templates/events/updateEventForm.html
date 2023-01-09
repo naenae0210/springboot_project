@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header" />
+<body>
+<div class="container">
+    <div th:replace="fragments/bodyHeader :: bodyHeader"/>
+    <form th:object="${form}" method="post">
+        <!-- id -->
+        <input type="hidden" th:field="*{id}" />
+        <div class="form-group">
+            <label th:for="name">이벤트명</label>
+            <input type="text" th:field="*{name}" class="form-control"
+                   placeholder="이벤트를 입력하세요" />
+        </div>
+        <div class="form-group">
+            <label th:for="price">인원수</label>
+            <input type="number" th:field="*{peopleNumber}" class="form-control"
+                   placeholder="인원수 입력하세요" />
+        </div>
+        <div class="form-group">
+            <label th:for="stockQuantity">주소</label>
+            <input type="string" th:field="*{address}" class="form-
+control" placeholder="주소를 입력하세요" />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <div th:replace="fragments/footer :: footer" />
+</div> <!-- /container -->
+</body>
+</html>
