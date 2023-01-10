@@ -3,6 +3,7 @@
 <head th:replace="fragments/header :: header" />
 <body>
 <div class="container">
+
     <div th:replace="fragments/bodyHeader :: bodyHeader"/>
     <form th:action="@{/events/new}" th:object="${form}" method="post">
         <div class="form-group">
@@ -21,6 +22,7 @@
     </form>
     <br/>
     <div th:replace="fragments/footer :: footer" />
-</div> <!-- /container -->
+
+</div>
 </body>
 </html>

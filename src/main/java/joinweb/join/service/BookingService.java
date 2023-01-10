@@ -26,7 +26,7 @@ public class BookingService {
     @Transactional
     public Long booking(Long memberId, Long eventId, int count) {
 
-        // 예약하는 고객, 예약할 이벤트를 먼저 찾아와야함
+        // 예약을 위해 정보(예약하는 고객, 예약할 이벤트)를 먼저 찾아와야함
         Member member = memberRepository.findOne(memberId);
         Event event = eventRepository.findOne(eventId);
 

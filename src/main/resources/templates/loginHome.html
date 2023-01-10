@@ -42,13 +42,13 @@
 
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="/">Home</a>
+                        <a class="nav-link" th:text="|${member.loginId}|" href="/"></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/login">sign in</a>
+                        <a class="nav-link" th:action="@{/logout}" method="post" href="/login" type="submit">logout</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/members/new">sign up</a>
+                        <a class="nav-link" href="/members">account</a>
                     </li>
 
                 </ul>
@@ -85,8 +85,73 @@
             </div>
         </div>
 
+
     </div>
 </section>
 
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+
+
+
+
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>JOIN</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+<div class="container" style="max-width: 600px">
+    <div class="py-5 text-center">
+        <h2>로그인후 화면</h2>
+    </div>
+    <h4 class="mb-3" th:text="|로그인: ${member.loginId}|">로그인 사용자 이름</h4>
+    <hr class="my-4">
+    <div class="row">
+        <div class="col">
+            <a class="btn btn-lg btn-dark" href="/events/new">이벤트 등록</a>
+        </div>
+        <div class="col">
+            <a class="btn btn-lg btn-info" href="/booking">이벤트 예약</a>
+            <a class="btn btn-lg btn-info" href="/bookings">예약 내역</a>
+        </div>
+        <div class="col">
+            <form th:action="@{/logout}" method="post">
+                <button class="w-100 btn btn-dark btn-lg" type="submit">
+                    로그아웃
+                </button>
+            </form>
+        </div>
+    </div>
+    <hr class="my-4">
+</div> <!-- /container -->
+</body>
+</html>
+-->

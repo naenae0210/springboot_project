@@ -1,13 +1,14 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments/header :: header">
-    <title>Hello</title>
+    <title>JOIN</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-<div class="container">
+<div class="container-fluid">
+    <div th:replace="fragments/bodyHeader :: bodyHeader"/>
     <div class="py-5 text-center">
-        <h2>로그인</h2>
+
     </div>
 
     <form action="event.html" th:action th:object="${loginForm}" method="post">
@@ -16,13 +17,13 @@
                th:text="${err}">전체 오류 메시지</p>
         </div>
         <div>
-            <label for="loginId">로그인 ID</label>
+            <label for="loginId">ID</label>
             <input type="text" id="loginId" th:field="*{loginId}" class="form-control"
                    th:errorclass="field-error">
             <div class="field-error" th:errors="*{loginId}" />
         </div>
         <div>
-            <label for="password">비밀번호</label>
+            <label for="password">Password</label>
             <input type="password" id="password" th:field="*{password}"
                    class="form-control"
                    th:errorclass="field-error">
@@ -36,6 +37,6 @@
 
         </div>
     </form>
-</div> <!-- /container -->
+</div>
 </body>
 </html>

@@ -8,10 +8,12 @@
         <table class="table table-striped">
             <thead>
             <tr>
-                <th>#</th>
-                <th>로그인ID</th>
+                <th>고객넘버</th>
+                <th>ID</th>
                 <th>이름</th>
                 <th>생년월일</th>
+                <th>예약정보</th>
+
             </tr>
             </thead>
             <tbody>
@@ -20,11 +22,12 @@
                 <td th:text="${member.loginId}"></td>
                 <td th:text="${member.name}"></td>
                 <td th:text="${member.birth}"></td>
+                <td><a href="/bookings">검색</a> </td>
             </tr>
             </tbody>
         </table>
     </div>
     <div th:replace="fragments/footer :: footer" />
-</div> <!-- /container -->
+</div>
 </body>
 </html>

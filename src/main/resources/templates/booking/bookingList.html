@@ -3,7 +3,9 @@
 <head th:replace="fragments/header :: header"/>
 <body>
 <div class="container">
+
     <div th:replace="fragments/bodyHeader :: bodyHeader"/>
+
     <div>
         <div>
             <form th:object="${bookingSearch}" class="form-inline">
@@ -22,6 +24,8 @@
                 <button type="submit" class="btn btn-primary mb-2">검색</button>
             </form>
         </div>
+
+
         <table class="table table-striped">
             <thead>
             <tr>
@@ -41,10 +45,14 @@
             </tr>
             </tbody>
         </table>
+
     </div>
+
     <div th:replace="fragments/footer :: footer"/>
-</div> <!-- /container -->
+
+</div>
 </body>
+
 <script>
     function cancel(id) {
         var form = document.createElement("form");
@@ -54,4 +62,5 @@
         form.submit();
     }
 </script>
+
 </html>

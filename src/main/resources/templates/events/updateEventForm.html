@@ -3,6 +3,7 @@
 <head th:replace="fragments/header :: header" />
 <body>
 <div class="container">
+
     <div th:replace="fragments/bodyHeader :: bodyHeader"/>
     <form th:object="${form}" method="post">
         <!-- id -->
@@ -18,14 +19,15 @@
                    placeholder="인원수 입력하세요" />
         </div>
         <div class="form-group">
-            <label th:for="stockQuantity">주소</label>
-            <input type="string" th:field="*{address}" class="form-
-control" placeholder="주소를 입력하세요" />
+            <label th:for="address">주소</label>
+            <input type="string" th:field="*{address}" class="form-control" placeholder="주소를 입력하세요" />
         </div>
 
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
+
     <div th:replace="fragments/footer :: footer" />
-</div> <!-- /container -->
+
+</div>
 </body>
 </html>

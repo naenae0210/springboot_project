@@ -27,6 +27,7 @@ public class BookingEvent {
 
     private int count; // 예약 인원
 
+    /** 예약된 이벤트 생성 **/
     public static BookingEvent createBookingEvent(Event event, int count) {
         BookingEvent bookingEvent = new BookingEvent();
         bookingEvent.setEvent(event);
@@ -36,6 +37,7 @@ public class BookingEvent {
         return bookingEvent;
     }
 
+    /** 예약한 이벤트 취소 **/
     public void cancel() {
         getEvent().addPeopleNumber(count);
     }

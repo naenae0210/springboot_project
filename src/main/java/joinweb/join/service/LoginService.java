@@ -17,20 +17,4 @@ public class LoginService {
                  .orElse(null);
     }
 
-    /*
-    public Member login(String loginId, String password) {
-        Member findMember = memberRepository.findByLoginId(loginId);
-
-        if(findMember == null) {
-            return null;
-        }
-
-        if(!findMember.getPassword().equals(password)) {
-            return null;
-        }
-
-        return findMember;
-    }
-
- */
 }

@@ -51,7 +51,6 @@ public class Booking {
     }
 
     /** 예약 취소 **/
-
     public void cancel() {
         this.setStatus(BookingStatus.CANCELED);
         for(BookingEvent bookingevent : bookingEvents) {

@@ -33,5 +33,7 @@ public class EventRepository {
         return em.createQuery("select e from Event e", Event.class)
                 .getResultList();
     }
+
+
 }
 

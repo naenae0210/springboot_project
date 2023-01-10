@@ -68,4 +68,6 @@ public class EventController {
         eventService.saveEvent(study);
         return "redirect:/events";
     }
+
+
 }
