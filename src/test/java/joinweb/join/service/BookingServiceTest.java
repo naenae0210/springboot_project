@@ -66,7 +66,7 @@ public class BookingServiceTest {
         bookingService.booking(member.getId(), event.getId(), count);
 
         // then
-        fail("예외 발생해야함");
+        fail("예외 발생해야 테스트 통과");
     }
 
     @Test

@@ -50,7 +50,7 @@ public class MemberServiceTest {
         memberService.join(member2);
 
         // then
-        fail("예외가 발생해야함.");
+        fail("예외가 발생해야 테스트 통과");
     }
 
     }
