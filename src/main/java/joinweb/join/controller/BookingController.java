@@ -10,10 +10,7 @@ import joinweb.join.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -45,6 +42,12 @@ public class BookingController {
         List<Booking> bookings = bookingService.findBookings(bookingSearch);
         model.addAttribute("bookings", bookings);
         return "booking/bookingList";
+    }
+
+    @PostMapping(value = "/bookings/{bookingId}/cancel")
+    public String cancelBooking(@PathVariable("bookingId") Long bookingId) {
+        bookingService.cancelBooking(bookingId);
+        return "redirect:/bookings";
     }
 
 }

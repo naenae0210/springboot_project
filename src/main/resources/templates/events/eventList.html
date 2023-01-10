@@ -14,7 +14,7 @@
                 <th>이벤트명</th>
                 <th>인원수</th>
                 <th>주소</th>
-                <th>예약</th>
+                <th></th>
                 <th></th>
             </tr>
             </thead>
@@ -24,7 +24,10 @@
                 <td th:text="${event.name}"></td>
                 <td th:text="${event.peopleNumber}"></td>
                 <td th:text="${event.address}"></td>
-                <td> <a href="/booking">예약하기</a></td>
+                <td>
+                    <a href="#" th:href="@{/events/{id}/edit (id=${event.id})}"
+                       class="btn btn-primary" role="button">수정</a>
+                </td>
             </tr>
             </tbody>
         </table>

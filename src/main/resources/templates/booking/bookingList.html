@@ -33,6 +33,7 @@
                 <th>회원명</th>
                 <th>예약 이벤트 정보</th>
                 <th>상태</th>
+                <th>예약취소</th>
                 <th></th>
             </tr>
             </thead>
@@ -42,6 +43,11 @@
                 <td th:text="${event.member.name}"></td>
                 <td th:text="${event.bookingEvents[0].event.name}"></td>
                 <td th:text="${event.status}"></td>
+                <td>
+                    <a th:if="${event.status.name() == 'JOINED'}" href="#"
+                       th:href="'javascript:cancel('+${event.id}+')'"
+                       class="btn btn-danger">예약취소</a>
+                </td>
             </tr>
             </tbody>
         </table>
