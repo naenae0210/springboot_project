@@ -60,6 +60,13 @@ public class EventController {
 
     @PostMapping(value = "/events/{eventId}/edit")
     public String updateEvent(@ModelAttribute("form") StudyForm studyForm) {
+        eventService.updateEvent(studyForm.getId(), studyForm.getName(), studyForm.getPeopleNumber(), studyForm.getAddress());
+
+        return "redirect:/events";
+    }
+    /*
+    @PostMapping(value = "/events/{eventId}/edit")
+    public String updateEvent(@ModelAttribute("form") StudyForm studyForm) {
         Study study = new Study();
         study.setId(studyForm.getId());
         study.setName(studyForm.getName());
@@ -68,6 +75,8 @@ public class EventController {
         eventService.saveEvent(study);
         return "redirect:/events";
     }
+
+     */
 
 
 }

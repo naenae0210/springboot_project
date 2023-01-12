@@ -29,6 +29,13 @@ public class EventService {
         return eventRepository.findOne(eventId);
     }
 
+    @Transactional
+    public void updateEvent(Long id, String name, int peopleNumber, String address) {
+        Event event = eventRepository.findOne(id);
+        event.setName(name);
+        event.setPeopleNumber(peopleNumber);
+        event.setName(address);
+    }
 
 
 }
